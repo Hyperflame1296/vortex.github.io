@@ -26,7 +26,9 @@ $(function() {
             ctx.fillRect(s.x * m + innerWidth * 0.5, s.y * m + innerHeight * 0.5, 1, 1);
         }
     }
-
+    $('code').each((i, v) => {
+        $(v).html(Prism.highlight($(v).html() ?? '', Prism.languages.clike, 'clike'))
+    })
     function loop() {
         update();
         requestAnimationFrame(loop);

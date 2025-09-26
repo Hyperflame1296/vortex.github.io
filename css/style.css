@@ -47,7 +47,23 @@ code {
     padding: 4px 8px;
     color: rgb(255, 255, 255);
     text-shadow: none;
-    font-family: monospace;
+    font-family: monospace !important;
+    display: block
+}
+code * {
+    font-family: monospace !important;
+}
+icode {
+    background: #111;
+    border: 1px solid #333;
+    padding: 2px 4px;
+    color: rgb(255, 255, 255);
+    text-shadow: none;
+    font-family: monospace !important;
+    display: inline-block
+}
+icode * {
+    font-family: monospace !important;
 }
 #sidebar-header {
     color: #fff;

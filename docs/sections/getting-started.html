@@ -3,13 +3,15 @@
         <title>Vortex Documentation</title>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="../../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../css/modules/prism.css">
         <script src="../../js/script.js"></script>
+        <script src="../../js/modules/prism.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <div class="container">
             <div id='hub-header' class="header">
-                <h1>Installation</h1>
+                <h1>Getting Started</h1>
             </div>
             <div class="content">
                 <div id="sidebar" class="box">
@@ -19,10 +21,46 @@
                     <a href='variable-types.html' id='sidebar-button' class="box-button"><p>Variable Types</p></a>
                     <a href='keywords.html' id='sidebar-button' class="box-button"><p>Keywords</p></a>
                 </div>
-                <p id="content-text">
-                    nothing here yet...
-                    i should honestly work on the actual language first before i start writing docs for it
-                </p>
+                <div id="content-text">
+                    <p>
+                        Below is a simple <strong>Vortex</strong> language example demonstrating how to import external 
+                        functionality and use it inside an entry point.<br>
+                        In this case, we bring in the Node.js console object 
+                        and print out a classic "hello world" message.
+                    </p>
+                    <pre>
+                        <code>
+// Vortex language example
+@require External::console // get the console object from Node
+entry() {
+    console.log('hello world') // logs 'hello world' into console
+}
+                        </code>
+                    </pre>
+                    <p>
+                        The snippet above shows two basic features.
+                    </p>
+                    <ul>
+                        <li>The <icode>@require</icode> allows you to pull in external modules or objects.</li>
+                        <li>The <icode>entry()</icode> function defines the starting point of your program.</li>
+                    </ul>
+                    <p>
+                        To run this program, you'll need an <icode>index.js</icode> file.
+                        The contents of this file will look something like this:
+                    </p>
+                    <pre>
+                        <code>
+// index.js
+let vortex = require('@hyperflame1/vortex') // get Vortex
+
+vortex.interpret('path/to/helloWorld.vx') // path to your Vortex file
+                        </code>
+                    </pre>
+                    <p>
+                        Now, with this file, you can do <icode>node index</icode> in the terminal, and it will run!<br>
+                        <i>(Vortex is an interpreter language. But a compiler to JavaScript will exist one day, trust me!)</i>
+                    </p>
+                </div>
             </div>
         </div>
     </body>
