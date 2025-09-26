@@ -111,3 +111,8 @@ canvas {
     z-index: -1;
     text-shadow: none;
 }
+/* prism stuff */
+.token.atRequire {
+    color: #f0c; /* hot pink! */
+    font-weight: bold;
+}

@@ -4,7 +4,23 @@ $(function() {
     c.height = innerHeight;
     let ctx = c.getContext('2d');
     $('.container').append(c);
-
+    Prism.languages.insertBefore('clike', 'keyword', {
+        '@require': {
+            pattern: /(?:@require)\b/,
+            alias: 'keyword'
+        },
+        'entry': {
+            pattern: /\b(?:entry)\b/,
+            alias: 'keyword'
+        },
+        'each': {
+            pattern: /\b(?:each)\b/,
+            alias: 'keyword'
+        }
+    });
+    $('code').each((i, v) => {
+        $(v).html(Prism.highlight($(v).html() ?? '', Prism.languages[v.dataset.type ?? 'clike'], v.dataset.type ?? 'clike'))
+    })
     let stars = Array(512).fill().map(() => ({
         x: Math.random() * innerWidth,
         y: Math.random() * innerHeight,
@@ -25,9 +41,6 @@ $(function() {
             ctx.fillRect((s.x + i) % c.width, s.y % c.height, 1, 1);
         }
     }
-    $('code').each((i, v) => {
-        $(v).html(Prism.highlight($(v).html() ?? '', Prism.languages[v.dataset.type ?? 'clike'], v.dataset.type ?? 'clike'))
-    })
     function loop() {
         update();
         requestAnimationFrame(loop);

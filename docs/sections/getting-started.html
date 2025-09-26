@@ -1,27 +1,30 @@
 <html>
     <head>
         <title>Vortex Documentation</title>
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="../../css/style.css">
-        <link rel="stylesheet" type="text/css" href="../../css/modules/prism.css">
-        <script src="../../js/script.js"></script>
-        <script src="../../js/modules/prism.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src='https://code.jquery.com/jquery-3.7.1.min.js' integrity='sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=' crossorigin='anonymous'></script>
+        <link rel='stylesheet' type='text/css' href='../../css/style.css'>
+        <link rel='stylesheet' type='text/css' href='../../css/modules/prism.css'>
+        <script src='../../js/script.js'></script>
+        <script src='../../js/modules/prism.js'></script>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
     </head>
     <body>
-        <div class="container">
-            <div id='hub-header' class="header">
+        <div class='container'>
+            <div id='hub-header' class='header'>
                 <h1>Getting Started</h1>
             </div>
-            <div class="content">
-                <div id="sidebar" class="box">
+            <div class='content'>
+                <div id='sidebar' class='box'>
                     <a href='../../index.html' id='sidebar-header'>Vortex</a>
-                    <a href='installation.html' id='sidebar-button' class="box-button"><p>Installation</p></a>
-                    <a href='getting-started.html' id='sidebar-button' class="box-button"><p>Getting Started</p></a>
-                    <a href='variable-types.html' id='sidebar-button' class="box-button"><p>Variable Types</p></a>
-                    <a href='keywords.html' id='sidebar-button' class="box-button"><p>Keywords</p></a>
+                    <a href='installation.html' id='sidebar-button' class='box-button'><p>Installation</p></a>
+                    <a href='getting-started.html' id='sidebar-button' class='box-button'><p>Getting Started</p></a>
+                    <a href='variables.html' id='sidebar-button' class='box-button'><p>Variables</p></a>
+                    <a href='functions.html' id='sidebar-button' class='box-button'><p>Functions</p></a>
+                    <a href='conditionals.html' id='sidebar-button' class='box-button'><p>Conditionals</p></a>
+                    <a href='loops.html' id='sidebar-button' class='box-button'><p>Loops</p></a>
+                    <a href='trycatch.html' id='sidebar-button' class='box-button'><p>Try/Catch</p></a>
                 </div>
-                <div id="content-text">
+                <div id='content-text'>
                     <p>
                         Below is a simple <strong>Vortex</strong> language example demonstrating how to import external 
                         functionality and use it inside an entry point.<br>
@@ -31,9 +34,10 @@
                     <pre>
                         <code data-type='clike'>
 // Vortex language example
-@require External::console // get the console object from Node
+
+@require Node::console // get the console object from Node.JS
 entry() {
-    console.log('hello world') // logs 'hello world' into console
+    console::log('hello world') // logs 'hello world' into console
 }
                         </code>
                     </pre>
@@ -60,7 +64,7 @@ entry() {
                         And the contents of <icode>index.js</icode> will look something like this:
                     </p>
                     <pre>
-                        <code data-type='clike'>
+                        <code data-type='js'>
 // index.js
 let { VortexInstance } = require('@hyperflame1/vortex') // get Vortex
 let vortex = new VortexInstance() // create an instance of Vortex
