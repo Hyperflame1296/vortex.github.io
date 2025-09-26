@@ -5,10 +5,10 @@ $(function() {
     let ctx = c.getContext('2d');
     $('.container').append(c);
 
-    let stars = Array(256).fill().map(() => ({
-        x: Math.random() * innerWidth - innerWidth / 2,
-        y: Math.random() * innerHeight - innerHeight / 2,
-        z: Math.random() * innerWidth
+    let stars = Array(512).fill().map(() => ({
+        x: Math.random() * innerWidth,
+        y: Math.random() * innerHeight,
+        s: Math.random()
     }))
     function update() {
         c.width = innerWidth;
@@ -20,14 +20,13 @@ $(function() {
         ctx.fillRect(0, 0, c.width, c.height);
         // Render stars
         for (let s of stars) {
-            let m = 540 / s.z;
-            s.x >= c.width * 0.5 ? s.x = -c.width * 0.5 : s.x += 0.5;
-            ctx.fillStyle = `rgba(255, 255, 255, ${Math.random()})`;
-            ctx.fillRect(s.x * m + innerWidth * 0.5, s.y * m + innerHeight * 0.5, 1, 1);
+            let i = (performance.now() / 20) * s.s
+            ctx.fillStyle = `rgba(255, 255, 255, ${s.s})`;
+            ctx.fillRect((s.x + i) % c.width, s.y % c.height, 1, 1);
         }
     }
     $('code').each((i, v) => {
-        $(v).html(Prism.highlight($(v).html() ?? '', Prism.languages.clike, 'clike'))
+        $(v).html(Prism.highlight($(v).html() ?? '', Prism.languages[v.dataset.type ?? 'clike'], v.dataset.type ?? 'clike'))
     })
     function loop() {
         update();

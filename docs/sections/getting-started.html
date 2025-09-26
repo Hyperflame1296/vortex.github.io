@@ -29,7 +29,7 @@
                         and print out a classic "hello world" message.
                     </p>
                     <pre>
-                        <code>
+                        <code data-type='clike'>
 // Vortex language example
 @require External::console // get the console object from Node
 entry() {
@@ -45,14 +45,26 @@ entry() {
                         <li>The <icode>entry()</icode> function defines the starting point of your program.</li>
                     </ul>
                     <p>
-                        To run this program, you'll need an <icode>index.js</icode> file.
-                        The contents of this file will look something like this:
+                        To run this program, you'll need a <icode>.vortexsettings</icode> file, and an <icode>index.js</icode> file.
+                        We actually don't need any data in the <icode>.vortexsettings</icode> file right now, so just put this in it for now:
                     </p>
                     <pre>
-                        <code>
+                        <code data-type='json'>
+{
+    "version": 1
+}
+                        </code>
+                    </pre>
+                    <p>
+                        And the contents of <icode>index.js</icode> will look something like this:
+                    </p>
+                    <pre>
+                        <code data-type='clike'>
 // index.js
-let vortex = require('@hyperflame1/vortex') // get Vortex
+let { VortexInstance } = require('@hyperflame1/vortex') // get Vortex
+let vortex = new VortexInstance() // create an instance of Vortex
 
+vortex.loadSettings() // load the settings file from earlier
 vortex.interpret('path/to/helloWorld.vx') // path to your Vortex file
                         </code>
                     </pre>
